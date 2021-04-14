@@ -12,7 +12,7 @@ public:
     {
         this->name_ = name;
     }
-    void IsProduct() = 0;
+    void IsProduct();
     void SetName(string name);
     void SetID(int id);
     void SetAmount(int amount);
