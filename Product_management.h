@@ -1,4 +1,5 @@
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
 
 class Product
@@ -7,6 +8,7 @@ private:
     /* data */
     int sl_;
     string name_;
+
 public:
     Product(string name)
     {
@@ -21,3 +23,10 @@ public:
     bool Status();
     ~Product() {}
 };
+
+void Product::SetName(string name)
+{
+    cout << "Enter product name:" << endl;
+    cin.ignore(256, '\n');
+    getline(cin, name);
+}
