@@ -57,4 +57,29 @@ string Product::GetName()
     return name_;
 }
 
+void Product::SetID(string ID_)
+{
+    this->ID_ = ID_;
+}
+void Product::SetID(string ID_)
+{
+    cin.ignore(256, '\n');
+    getline(cin, ID_);
+}
+string Product::GetID()
+{
+    return ID_;
+}
 
+void Product::SetAmount(int amount_)
+{
+    this->amount_ = amount_;
+}
+void Product::SetAmount()
+{
+    cin >> amount_;
+}
+int Product::GetAmount()
+{
+    return amount_;
+}
