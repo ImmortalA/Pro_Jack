@@ -20,23 +20,41 @@ public:
 
     void IsProduct();
 
-    void GetName();
     void SetName(string name_);
-    void GetID();
+    void SetName();
+    string GetName();
+
     void SetID(string ID_);
-    void GetAmount();
+    void SetID();
+    string GetID();
+
     void SetAmount(int amount_);
-    void GetPrice();
+    void SetAmount();
+    int GetAmount();
+
     void SetPrice(int price_);
-    void GetDiscount();
+    void SetPrice();
+    int GetPrice();
+
     void SetDiscount(double percent_, string start_date_, string end_date_);
+    void SetDiscount();
 
     bool Status();
     ~Product() {}
 };
 
-void Product::GetName()
+void Product::SetName(string name_)
+{
+    this->name_ = name_;
+}
+void Product::SetName()
 {
     cin.ignore(256, '\n');
     getline(cin, name_);
 }
+string Product::GetName()
+{
+    return name_;
+}
+
+
