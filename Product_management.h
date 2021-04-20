@@ -12,7 +12,7 @@ private:
     int amount_;
     int price_;
     double percent_;
-    string start_day_, end_date_;
+    string start_date_, end_date_;
     int discount_price_;
 
 public:
@@ -99,5 +99,8 @@ int Product::GetPrice()
 
 void Product::SetDiscount(double percent_, string start_date_, string end_date_)
 {
-    
+    this->percent_ = percent_;
+    this->start_date_ = start_date_;
+    this->end_date_ = end_date_;
+    discount_price_ = price_ * (100 - percent_) / 100;
 }
