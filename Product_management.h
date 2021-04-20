@@ -83,3 +83,21 @@ int Product::GetAmount()
 {
     return amount_;
 }
+
+void Product::SetPrice(int price_)
+{
+    this->price_ = price_;
+}
+void Product::SetPrice()
+{
+    cin >> price_;
+}
+int Product::GetPrice()
+{
+    return price_;
+}
+
+void Product::SetDiscount(double percent_, string start_date_, string end_date_)
+{
+    
+}
