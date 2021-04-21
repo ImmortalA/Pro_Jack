@@ -12,8 +12,7 @@ using namespace std;
 int ShowMenu()
 {
     cout << "============================================\n\n";
-    cout << "(っ＾▿＾っ) Welcome Master (っ＾▿＾っ)\n";
-    cout << "\tThis is the menu ☜(ˆ▿ˆc)\n\n";
+    cout << "\nThis is the menu ☜(ˆ▿ˆc)\n\n";
     cout << "1.Add a product from terminal\n";
     cout << "2.Display product list on terminal\n";
     cout << "3.Add a product from file\n";
@@ -29,6 +28,8 @@ int ShowMenu()
 
 int main()
 {
+    cout << "============================================\n\n";
+    cout << "(っ＾▿＾っ) Welcome Master (っ＾▿＾っ)\n";
     while (true)
     {
         int option = ShowMenu();
