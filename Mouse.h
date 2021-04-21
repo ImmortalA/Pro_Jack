@@ -9,25 +9,20 @@ private:
 
 public:
     Mouse();
-    Mouse(string brand_);
 
-    void SetBrand();
+    void EnterBrand();
     string GetBrand();
 
-    void SetType();
+    void EnterType();
     string GetType();
 
-    void SetColor();
+    void EnterColor();
     string GetColor();
 
     void Show();
 };
 
-Mouse::Mouse(string brand_)
-{
-    this->brand_ = brand_;
-}
-void Mouse::SetBrand()
+void Mouse::EnterBrand()
 {
     cin.ignore(256, '\n');
     getline(cin, brand_);
@@ -36,7 +31,7 @@ string Mouse::GetBrand()
 {
     return this->brand_;
 }
-void Mouse::SetType()
+void Mouse::EnterType()
 {
     cin.ignore(256, '\n');
     getline(cin, type_);
@@ -45,7 +40,7 @@ string Mouse::GetType()
 {
     return this->color_;
 }
-void Mouse::SetColor()
+void Mouse::EnterColor()
 {
     cin.ignore(256, '\n');
     getline(cin, color_);

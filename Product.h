@@ -23,19 +23,19 @@ public:
     void IsProduct();
 
     void SetName(string name_);
-    void SetName();
+    void EnterName();
     string GetName();
 
     void SetID(string ID_);
-    void SetID();
+    void EnterID();
     string GetID();
 
     void SetAmount(int amount_);
-    void SetAmount();
+    void EnterAmount();
     int GetAmount();
 
     void SetPrice(int price_);
-    void SetPrice();
+    void EnterPrice();
     int GetPrice();
 
     void SetDiscount(double percent_, string start_date_, string end_date_);
@@ -49,10 +49,10 @@ void Product::SetName(string name_)
 {
     this->name_ = name_;
 }
-void Product::SetName()
+void Product::EnterName()
 {
     cin.ignore(256, '\n');
-    getline(cin, name_);
+    getline(cin, this->name_);
 }
 string Product::GetName()
 {
@@ -63,10 +63,10 @@ void Product::SetID(string ID_)
 {
     this->ID_ = ID_;
 }
-void Product::SetID(string ID_)
+void Product::EnterID()
 {
     cin.ignore(256, '\n');
-    getline(cin, ID_);
+    getline(cin, this->ID_);
 }
 string Product::GetID()
 {
@@ -77,9 +77,9 @@ void Product::SetAmount(int amount_)
 {
     this->amount_ = amount_;
 }
-void Product::SetAmount()
+void Product::EnterAmount()
 {
-    cin >> amount_;
+    cin >> this->amount_;
 }
 int Product::GetAmount()
 {
@@ -90,9 +90,9 @@ void Product::SetPrice(int price_)
 {
     this->price_ = price_;
 }
-void Product::SetPrice()
+void Product::EnterPrice()
 {
-    cin >> price_;
+    cin >> this->price_;
 }
 int Product::GetPrice()
 {
