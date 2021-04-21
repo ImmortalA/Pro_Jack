@@ -41,8 +41,6 @@ public:
     void SetDiscount(double percent_, string start_date_, string end_date_);
 
     bool Status();
-
-    ~Product() {}
 };
 
 void Product::SetName(string name_)
