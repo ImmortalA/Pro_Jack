@@ -32,7 +32,7 @@ void Mouse::SetBrand(string brand_)
 void Mouse::EnterBrand()
 {
     cin.ignore(256, '\n');
-    getline(cin, brand_);
+    getline(cin, this->brand_);
 }
 string Mouse::GetBrand()
 {
@@ -46,7 +46,7 @@ void Mouse::SetType(string type_)
 void Mouse::EnterType()
 {
     cin.ignore(256, '\n');
-    getline(cin, type_);
+    getline(cin, this->type_);
 }
 string Mouse::GetType()
 {
@@ -60,7 +60,7 @@ void Mouse::SetColor(string color_)
 void Mouse::EnterColor()
 {
     cin.ignore(256, '\n');
-    getline(cin, color_);
+    getline(cin, this->color_);
 }
 string Mouse::GetColor()
 {
