@@ -6,7 +6,6 @@ using namespace std;
 class Product
 {
 private:
-    /* data */
     string name_;
     string ID_;
     int amount_;
@@ -106,6 +105,8 @@ void Product::SetDiscount(double percent_, string start_date_, string end_date_)
 
 bool Product::Status()
 {
-    if (amount_ == 0) return 0;
-    else return 1;
+    if (amount_ == 0)
+        return 0;
+    else
+        return 1;
 }
