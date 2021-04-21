@@ -45,9 +45,9 @@ void Mouse::EnterColor()
     cin.ignore(256, '\n');
     getline(cin, color_);
 }
-string GetColor()
+string Mouse::GetColor()
 {
-
+    return color_;
 }
 void Mouse::Show()
 {
