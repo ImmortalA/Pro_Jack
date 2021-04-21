@@ -7,7 +7,6 @@ class Product
 {
 private:
     /* data */
-    int sl_;
     string name_;
     string ID_;
     int amount_;
