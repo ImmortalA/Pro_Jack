@@ -37,6 +37,7 @@ public:
     int GetPrice();
 
     void SetDiscount(double percent_, string start_date_, string end_date_);
+    double GetDiscount();
 
     bool Status();
 };
@@ -101,6 +102,9 @@ void Product::SetDiscount(double percent_, string start_date_, string end_date_)
     this->start_date_ = start_date_;
     this->end_date_ = end_date_;
     discount_price_ = price_ * (100 - percent_) / 100;
+}
+double Product::GetDiscount(){
+    return this->percent_;
 }
 
 bool Product::Status()
