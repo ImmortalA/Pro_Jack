@@ -1,6 +1,6 @@
 #include "Product.h"
 
-class Mouse : Product
+class Mouse : public Product
 {
 private:
     string brand_;
