@@ -1,6 +1,4 @@
-#include <iostream>
-// #include <Product_management.h>
-using namespace std;
+#include"include.h"
 
 #define ACTION_ADD_TERMINAL 1
 #define ACTION_READ_TERMINAL 2
