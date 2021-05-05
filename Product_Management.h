@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include<iomanip>
+#include <iomanip>
 #include "Mouse.h"
 #include "Laptop.h"
 
@@ -33,7 +33,7 @@ public:
 
 Product_List::Product_List()
 {
-    product_arr_ = new Product [maxx];
+    product_arr_ = new Product[maxx];
     this->length = 0;
 }
 
@@ -120,19 +120,19 @@ void Product_List::SetGeneralSpecifications(Product *a, string name_)
     cout << endl;
 
     cout << setw(10) << "Discount: \n";
-    cout << setw(15) << "Discount price: ";   
+    cout << setw(15) << "Discount price: ";
     cin >> discount_price_;
-    cout<<endl;
+    cout << endl;
 
-    cout << setw(15) << "Discount start date: ";   
+    cout << setw(15) << "Discount start date: ";
     cin >> start_date_;
-    cout<<endl;
+    cout << endl;
 
-    cout << setw(15) << "Discount end date: ";   
+    cout << setw(15) << "Discount end date: ";
     cin >> end_date_;
-    cout<<endl;
+    cout << endl;
 
-    a->SetDiscount(discount_price_,start_date_,end_date_);
+    a->SetDiscount(discount_price_, start_date_, end_date_);
     cout << endl;
 
     cout << setw(10) << "Status (1.A\t2.N/A): ";
