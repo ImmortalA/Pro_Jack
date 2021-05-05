@@ -71,7 +71,23 @@ double Laptop::GetScreenSize()
     return this->screen_size_;
 }
 
-void Laptop::SetRam(int ram_){}
+void Laptop::SetRam(int ram_)
+{
+    this->ram_ = ram_;
+}
+int Laptop::GetRam()
+{
+    return ram_;
+}
+
+void Laptop::SetColor(string color_)
+{
+    this->color_ = color_;
+}
+string Laptop::GetColor()
+{
+    return color_;
+}
 
 void Laptop::Show()
 {
