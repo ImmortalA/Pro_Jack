@@ -4,7 +4,7 @@
 class Laptop : public Product
 {
 private:
-    string name_;
+    string brand_;
     string disk_type_;
     double screen_size_;
     int ram_;
@@ -12,7 +12,6 @@ private:
     string color_;
 
 public:
-<<<<<<< Updated upstream
     Laptop();
 
     void SetBrand(string brand_);
@@ -72,7 +71,7 @@ double Laptop::GetScreenSize()
     return this->screen_size_;
 }
 
-void Laptop::SetRam(){}
+void Laptop::SetRam(int ram_){}
 
 void Laptop::Show()
 {
