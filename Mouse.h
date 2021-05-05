@@ -1,4 +1,13 @@
-#include "Product.h"
+// #include "include.h"
+// #include "Product.h"
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
+#include "Product2.h"
+
+using namespace std;
+
 
 class Mouse : public Product
 {
