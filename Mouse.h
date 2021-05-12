@@ -39,11 +39,12 @@ void Mouse::SetBrand(string brand_)
 }
 void Mouse::EnterBrand()
 {
-    // cin.ignore(256, '\n');
-    // getline(cin, this->brand_);
-    cin.ignore();
+    cin.ignore(256, '\n');
     getline(cin, this->brand_);
-    cin.clear();
+    // cin.ignore();
+    // getline(cin, this->brand_);
+    // cin.clear();
+    cout << this->brand_ << endl;
 }
 string Mouse::GetBrand()
 {
@@ -56,15 +57,16 @@ void Mouse::SetType(string type_)
 }
 void Mouse::EnterType()
 {
-    // cin.ignore(256, '\n');
-    // getline(cin, this->type_);
-    cin.ignore();
+    cin.ignore(256, '\n');
     getline(cin, this->type_);
-    cin.clear();
+    // cin.ignore();
+    // getline(cin, this->type_);
+    // cin.clear();
+    cout << this->type_ << endl;
 }
 string Mouse::GetType()
 {
-    return this->color_;
+    return this->type_;
 }
 
 void Mouse::SetColor(string color_)
@@ -73,15 +75,16 @@ void Mouse::SetColor(string color_)
 }
 void Mouse::EnterColor()
 {
-    // cin.ignore(256, '\n');
-    // getline(cin, this->color_);
-    cin.ignore();
+    cin.ignore(256, '\n');
     getline(cin, this->color_);
-    cin.clear();
+    // cin.ignore();
+    // getline(cin, this->color_);
+    // cin.clear();
+    cout << this->color_ << endl;
 }
 string Mouse::GetColor()
 {
-    return color_;
+    return this->color_;
 }
 
 void Mouse::SetDetail()
@@ -98,7 +101,8 @@ void Mouse::SetDetail()
 
 void Mouse::ShowDetail()
 {
-    cout << "Detail:\tBrand: " << GetBrand()
-         << "\tStatus" << GetStatus()
-         << "\tColor" << GetColor();
+    cout << "Detail:\t\tBrand: " << GetBrand()
+         << setw(15) << "Type: " << GetType()
+         << setw(15) << "Color: " << GetColor()
+         << endl;
 }

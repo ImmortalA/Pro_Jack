@@ -82,7 +82,7 @@ void Laptop::SetRam(int ram_)
 }
 int Laptop::GetRam()
 {
-    return ram_;
+    return this->ram_;
 }
 
 void Laptop::SetColor(string color_)
@@ -91,7 +91,7 @@ void Laptop::SetColor(string color_)
 }
 string Laptop::GetColor()
 {
-    return color_;
+    return this->color_;
 }
 
 void Laptop::SetDetail()
@@ -124,6 +124,10 @@ void Laptop::SetDetail()
 void Laptop::ShowDetail()
 {
     cout << "Detail:\tBrand: " << GetBrand()
-         << "\tStatus" << GetStatus()
-         << "\tColor" << GetColor();
+         << "\tDisk type: " << GetDiskType()
+         << "\tDisk capacity: " << GetDiskCapacity()
+         << "\tScreen size: " << GetScreenSize()
+         << "\tRAM: " << GetRam()
+         << "\tColor" << GetColor()
+         << endl;
 }
