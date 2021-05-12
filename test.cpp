@@ -5,27 +5,14 @@ using namespace std;
 
 int main()
 {
-    // string read_test;
-
-    // ifstream myfile;
-    // myfile.open("./Data/INPUT.txt");
-
-    // cout << "File read test" << endl;
-
-    // cin.ignore();
-    // getline(myfile, read_test);
-    // cout << read_test;
-
-    // getline(myfile, read_test);
-    // cout << read_test;
-
-    // myfile.close();
-
+    //format INPUT: name|ID|amount|price|discount|
     string name_;
     string ID_;
     int amount_;
     int price_;
-    float discount_;
+    double discount_;
+
+    string data_;
 
     ifstream readfile;
     ofstream writefile;
@@ -33,18 +20,42 @@ int main()
     readfile.open("./Data/INPUT.txt");
     writefile.open("./Data/OUTPUT.txt");
 
-        getline(readfile, name_);
-        getline(readfile, ID_);
-        readfile >> amount_ >> price_ >> discount_;
+    while (getline(readfile, data_))
+    {
+        string delimiter_ = "|";
+        size_t position_ = 0;
+        int i = 0;
+        string token_;
 
-        writefile << name_ << endl
-                  << ID_ << endl
-                  << amount_ << endl
-                  << price_ << endl
-                  << discount_ << endl;
+        while ((position_ = data_.find(delimiter_)) != std::string::npos)
+        {
+            token_ = data_.substr(0, position_);
+            writefile << token_ << endl;
+            switch (i)
+            {
+            case 0:
+                name_ = token_;
+                break;
+            case 1:
+                ID_ = token_;
+                break;
+            case 2:
+                amount_ = stoi(token_);
+                break;
+            case 3:
+                price_ = stoi(token_);
+                break;
+            case 4:
+                discount_ = stod(token_);
+                break;
+            }
+            data_.erase(0, position_ + delimiter_.length());
+            i++;
+        }
+        writefile << "\n";
+    }
 
     writefile.close();
     readfile.close();
-
     return 0;
 }
