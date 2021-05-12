@@ -8,7 +8,7 @@ using namespace std;
 
 #define ACTION_ADD_TERMINAL 1
 #define ACTION_DISPLAY_TERMINAL 2
-#define ACTION_ADD_FILE 3
+#define ACTION_SAVE_FILE 3
 #define ACTION_DISPLAY_FILE 4
 #define ACTION_DEL 5
 #define ACTION_EXIT 6
@@ -26,7 +26,7 @@ public:
     void actionAddTerminal(Product_List &my_list);
     void actionDisplayTerminal(Product_List &my_list);
 
-    void actionAddFile(Product_List &my_list) {}
+    void actionSaveFile(Product_List &my_list) {}
     void actionDisplayFile(Product_List &my_list) {}
 
     void actionDel(Product_List &my_list);
@@ -38,7 +38,7 @@ int Menu::ShowMenu()
     cout << "\tThis is the menu ☜(ˆ▿ˆc)\n";
     cout << "1.Add a product from terminal\n";
     cout << "2.Display product list on terminal\n";
-    cout << "3.Add a product from file\n";
+    cout << "3.Save a product from file\n";
     cout << "4.Display product list on file\n";
     cout << "5.Delete a product \n";
     cout << "6.Exit\n\n";
@@ -70,9 +70,9 @@ void Menu::MainMenu()
             actionDisplayTerminal(my_list);
             break;
         }
-        case ACTION_ADD_FILE:
+        case ACTION_SAVE_FILE:
         {
-            actionAddFile(my_list);
+            actionSaveFile(my_list);
             break;
         }
         case ACTION_DISPLAY_FILE:
@@ -109,10 +109,10 @@ void Menu::actionAddTerminal(Product_List &my_list)
     {
     case 1:
     {
-        Mouse mouse_;
+        Mouse* mouse_ = new Mouse();
         cout << "\n\tProduct chosen: MOUSE\n"
              << "Please input your mouse specifications: \n";
-        mouse_.SetGeneral("Mouse");
+        mouse_->SetGeneral("Mouse");
 
         cout << "Do you want to add detail for your mouse?\n"
              << setw(15) << "1.Yes "
@@ -123,17 +123,17 @@ void Menu::actionAddTerminal(Product_List &my_list)
         if (option == 1)
         {
             cout << "Please input your mouse details: \n";
-            mouse_.SetDetail();
+            mouse_->SetDetail();
         }
         my_list.Push(mouse_);
         break;
     }
     case 2:
     {
-        Laptop laptop_;
+        Laptop* laptop_ = new Laptop();
         cout << "\n\tProduct chosen: LAPTOP\n"
              << "Please input your laptop specifications: \n";
-        laptop_.SetGeneral("Laptop");
+        laptop_->SetGeneral("Laptop");
 
         cout << "Do you want to add detail for your laptop?\n"
              << setw(15) << "1.Yes "
@@ -144,7 +144,7 @@ void Menu::actionAddTerminal(Product_List &my_list)
         if (option == 1)
         {
             cout << "Please input your laptop details: \n";
-            laptop_.SetDetail();
+            laptop_->SetDetail();
         }
         my_list.Push(laptop_);
         break;
@@ -184,7 +184,21 @@ void Menu::actionDisplayTerminal(Product_List &my_list)
             cout << "Your selection: ";
             int option;
             cin >> option;
-
+            switch (option)
+            {
+            case 1:
+            {
+                my_list.ShowByProduct("Mouse");
+                break;
+            } 
+            case 2:
+            {
+                my_list.ShowByProduct("Laptop");
+                break;
+            }
+            default:
+                break;
+            }
             break;
         }
         }

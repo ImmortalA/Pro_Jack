@@ -37,6 +37,7 @@ public:
     string GetColor();
 
     void SetDetail();
+    void ShowDetail();
 };
 
 void Laptop::SetBrand(string brand_)
@@ -118,4 +119,11 @@ void Laptop::SetDetail()
     cin.ignore();
     getline(cin, this->color_);
     cin.clear();
+}
+
+void Laptop::ShowDetail()
+{
+    cout << "Detail:\tBrand: " << GetBrand()
+         << "\tStatus" << GetStatus()
+         << "\tColor" << GetColor();
 }
