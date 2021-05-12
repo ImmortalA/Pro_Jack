@@ -48,7 +48,8 @@ public:
     string GetStatus();
 
     void SetGeneral(string name);
-    // virtual void SetDetails() = 0;
+    void ShowGeneral();
+    virtual void ShowDetail() = 0;
 };
 
 void Product::SetName(string name_)
@@ -145,8 +146,10 @@ void Product::SetGeneral(string name)
 {
     SetName(name);
 
-    if (name == "Mouse") cout << "ID (Mxxx): ";
-    else cout << "ID (Lxxx): ";
+    if (name == "Mouse")
+        cout << "ID (Mxxx): ";
+    else
+        cout << "ID (Lxxx): ";
     EnterID();
 
     cout << "Price: ";
@@ -166,6 +169,17 @@ void Product::SetGeneral(string name)
     cin >> end_date_;
 
     SetDiscount(discount_percent_, start_date_, end_date_);
+}
+
+void Product::ShowGeneral()
+{
+    cout << setw(10) << GetName()
+         << setw(10) << GetID()
+         << setw(10) << GetPrice()
+         << setw(23) << GetDiscountPercent()
+         << setw(15) << GetDiscountStartDate()
+         << setw(17) << GetDiscountEndDate()
+         << endl;
 }
 
 #endif //PRODUCT_H

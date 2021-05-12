@@ -13,7 +13,7 @@ using namespace std;
 class Product_List
 {
 private:
-    Product *product_arr_;
+    Product **product_arr_;
     int length;
 
 public:
@@ -23,7 +23,7 @@ public:
     int GetLength() const;
     void SetLength(int n);
 
-    bool Push(Product a);
+    bool Push(Product* a);
     void Pop(int i);
     void PopByProduct(string name);
 
@@ -35,7 +35,7 @@ public:
 
 Product_List::Product_List()
 {
-    product_arr_ = new Product[maxx];
+    product_arr_ = new Product*[maxx];
     this->length = 0;
 }
 
@@ -55,7 +55,7 @@ void Product_List::SetLength(int n)
     this->length = n;
 }
 
-bool Product_List::Push(Product a)
+bool Product_List::Push(Product* a)
 {
     if (this->length + 1 < maxx)
     {
@@ -66,10 +66,13 @@ bool Product_List::Push(Product a)
 
 void Product_List::Pop(int i)
 {
+    delete this->product_arr_[i];
     for (int j = i; j < this->length - 1; j++)
     {
         product_arr_[j] = product_arr_[j + 1];
     }
+
+    this->product_arr_[this->length] = NULL;
     this->length--;
 }
 
@@ -78,7 +81,7 @@ void Product_List::PopByProduct(string name)
     int i = 0;
     while (i < this->length)
     {
-        if (this->product_arr_[i].GetName() == name)
+        if (this->product_arr_[i]->GetName() == name)
         {
             for (int j = i; j < this->length - 1; j++)
             {
@@ -86,7 +89,8 @@ void Product_List::PopByProduct(string name)
             }
             this->length--;
         }
-        else i++;
+        else
+            i++;
     }
 }
 
@@ -94,7 +98,6 @@ void Product_List::Show()
 {
     if (this->length == 0)
         return;
-    int i = 0;
     cout << setw(40) << "GENERAL" << endl;
     cout << setw(5) << "No. "
          << setw(7) << "Name"
@@ -104,74 +107,37 @@ void Product_List::Show()
          << setw(10) << "Percent"
          << setw(15) << "Start Date"
          << setw(15) << "End Date"
-         //  << setw(10) << "Status"
          << endl;
-    while (i != this->length)
+    for (int i = 0; i < this->length; i++)
     {
-        cout << setw(3) << i
-             << setw(10) << this->product_arr_[i].GetName()
-             << setw(10) << this->product_arr_[i].GetID()
-             << setw(10) << this->product_arr_[i].GetPrice()
-             << setw(23) << this->product_arr_[i].GetDiscountPercent()
-             << setw(15) << this->product_arr_[i].GetDiscountStartDate()
-             << setw(17) << this->product_arr_[i].GetDiscountEndDate()
-             //  << setw(10) << this->product_arr_[i].GetStatus()
-             << endl;
-        i++;
+        cout << setw(3) << i;
+        this->product_arr_[i]->ShowGeneral();
     }
 }
 
 void Product_List::ShowByProduct(string name)
 {
-    // if (this->length == 0)
-    //     return;
-    // int i = 0;
-    // cout << setw(40) << "GENERAL" << setw(70) << "DETAIL" << endl;
-    // cout << setw(5) << "No. "
-    //      << setw(7) << "Name"
-    //      << setw(10) << "ID"
-    //      << setw(10) << "Price"
-    //      << setw(15) << "Discount:"
-    //      << setw(10) << "Percent"
-    //      << setw(15) << "Start Date"
-    //      << setw(15) << "End Date";
-    // if (name == "Mouse")
-    // {
-    //     cout << setw(15) << "Brand"
-    //          << setw(15) << "Type"
-    //          << setw(15) << "Color"
-    //          << endl;
-    // }
-    // else
-    // {
-    //     cout << setw(15) << "Brand"
-    //          << setw(15) << "Disk Type"
-    //          << setw(15) << "Disk Capacity"
-    //          << setw(15) << "Screen size"
-    //          << setw(15) << "RAM"
-    //          << setw(15) << "Color"
-    //          << endl;
-    // }
-    // int j = 0;
-    // while (i != this->length)
-    // {
-    //     if (name == "Mouse")
-    //     {
-    //         cout << setw(3) << j
-    //              << setw(10) << this->product_arr_[i].GetName()
-    //              << setw(10) << this->product_arr_[i].GetID()
-    //              << setw(10) << this->product_arr_[i].GetPrice()
-    //              << setw(23) << this->product_arr_[i].GetDiscountPercent()
-    //              << setw(15) << this->product_arr_[i].GetDiscountStartDate()
-    //              << setw(17) << this->product_arr_[i].GetDiscountEndDate()
-    //              << setw(15) << this->product_arr_[i].
-    //              << setw(15) << "Type"
-    //              << setw(15) << "Color"
-    //              << endl;
-    //         << endl;
-    //     }
-    //     i++;
-    // }
+    if (this->length == 0)
+        return;
+    cout << setw(40) << "GENERAL" << endl;
+    cout << setw(5) << "No. "
+         << setw(7) << "Name"
+         << setw(10) << "ID"
+         << setw(10) << "Price"
+         << setw(15) << "Discount:"
+         << setw(10) << "Percent"
+         << setw(15) << "Start Date"
+         << setw(15) << "End Date"
+         << endl;
+    for (int i = 0; i < this->length; i++)
+    {
+        if (this->product_arr_[i]->GetName() == name)
+        {
+            cout << setw(3) << i;
+            this->product_arr_[i]->ShowGeneral();
+            this->product_arr_[i]->ShowDetail();
+        }
+    }
 }
 
 // void Product_List::ReadFile(Product &product_data)

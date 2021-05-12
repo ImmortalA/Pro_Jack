@@ -30,6 +30,7 @@ public:
     // void Show();
 
     void SetDetail();
+    void ShowDetail();
 };
 
 void Mouse::SetBrand(string brand_)
@@ -93,4 +94,11 @@ void Mouse::SetDetail()
 
     cout << "Color: ";
     EnterColor();
+}
+
+void Mouse::ShowDetail()
+{
+    cout << "Detail:\tBrand: " << GetBrand()
+         << "\tStatus" << GetStatus()
+         << "\tColor" << GetColor();
 }
