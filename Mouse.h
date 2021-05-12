@@ -39,10 +39,10 @@ void Mouse::SetBrand(string brand_)
 }
 void Mouse::EnterBrand()
 {
-    cin.ignore(256, '\n');
-    getline(cin, this->brand_);
-    // cin.ignore();
+    // cin.ignore(256, '\n');
     // getline(cin, this->brand_);
+    cin.ignore();
+    getline(cin, this->brand_);
     // cin.clear();
     cout << this->brand_ << endl;
 }
@@ -57,10 +57,10 @@ void Mouse::SetType(string type_)
 }
 void Mouse::EnterType()
 {
-    cin.ignore(256, '\n');
-    getline(cin, this->type_);
-    // cin.ignore();
+    // cin.ignore(256, '\n');
     // getline(cin, this->type_);
+    cin.ignore(0);
+    getline(cin, this->type_);
     // cin.clear();
     cout << this->type_ << endl;
 }
@@ -75,10 +75,10 @@ void Mouse::SetColor(string color_)
 }
 void Mouse::EnterColor()
 {
-    cin.ignore(256, '\n');
-    getline(cin, this->color_);
-    // cin.ignore();
+    // cin.ignore(256, '\n');
     // getline(cin, this->color_);
+    cin.ignore(0);
+    getline(cin, this->color_);
     // cin.clear();
     cout << this->color_ << endl;
 }
