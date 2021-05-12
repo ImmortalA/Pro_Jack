@@ -1,5 +1,6 @@
-
 #include "Product.h"
+
+using namespace std;
 
 class Laptop : public Product
 {
@@ -12,7 +13,10 @@ private:
     string color_;
 
 public:
-    Laptop();
+    Laptop() : Product()
+    {
+    }
+    ~Laptop() {}
 
     void SetBrand(string brand_);
     string GetBrand();
@@ -32,7 +36,7 @@ public:
     void SetColor(string color_);
     string GetColor();
 
-    void Show();
+    void SetDetail();
 };
 
 void Laptop::SetBrand(string brand_)
@@ -89,13 +93,29 @@ string Laptop::GetColor()
     return color_;
 }
 
-void Laptop::Show()
+void Laptop::SetDetail()
 {
-    cout << "Brand: " << this->brand_ << endl;
-    cout << "Disk: " << endl;
-    cout << "Type: " << this->disk_type_ << "\t\t"
-         << "Capacity: " << this->screen_size_ << endl;
-    cout << "Screen Size: " << this->screen_size_ << endl;
-    cout << "RAM: " << this->ram_ << endl;
-    cout << "Color: " << this->color_ << endl;
+    cout << "Brand: ";
+    cin.ignore();
+    getline(cin, this->brand_);
+    cin.clear();
+
+    cout << "Disk Type (SSD / HDD): ";
+    cin.ignore();
+    getline(cin, this->disk_type_);
+    cin.clear();
+
+    cout << "Disk Capacity: ";
+    cin >> this->disk_capacity_;
+
+    cout << "Screen Size (inch): ";
+    cin >> this->screen_size_;
+
+    cout << "RAM: ";
+    cin >> this->ram_;
+
+    cout << "Color: ";
+    cin.ignore();
+    getline(cin, this->color_);
+    cin.clear();
 }

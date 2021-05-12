@@ -1,9 +1,8 @@
-// #include "include.h"
-
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <iomanip>
+
 #include "Mouse.h"
 #include "Laptop.h"
 
@@ -25,10 +24,13 @@ public:
     void SetLength(int n);
 
     bool Push(Product a);
+    void Pop(int i);
+    void PopByProduct(string name);
 
-    void Show() const;
+    void Show();
+    void ShowByProduct(string name);
 
-    void SetGeneralSpecifications(Product *a, string name_);
+    // void ReadFile(Product &product_data);
 };
 
 Product_List::Product_List()
@@ -62,81 +64,137 @@ bool Product_List::Push(Product a)
     }
 }
 
-void Product_List::Show() const
+void Product_List::Pop(int i)
+{
+    for (int j = i; j < this->length - 1; j++)
+    {
+        product_arr_[j] = product_arr_[j + 1];
+    }
+    this->length--;
+}
+
+void Product_List::PopByProduct(string name)
+{
+    int i = 0;
+    while (i < this->length)
+    {
+        if (this->product_arr_[i].GetName() == name)
+        {
+            for (int j = i; j < this->length - 1; j++)
+            {
+                product_arr_[j] = product_arr_[j + 1];
+            }
+            this->length--;
+        }
+        else i++;
+    }
+}
+
+void Product_List::Show()
 {
     if (this->length == 0)
         return;
     int i = 0;
-    cout << setw(20) << "No. "
-         << setw(20) << "Name"
-         << setw(20) << "ID"
-         << setw(20) << "Amount"
-         << setw(20) << "Price"
-         << setw(20) << "Discount"
-         << setw(20) << "Status"
+    cout << setw(40) << "GENERAL" << endl;
+    cout << setw(5) << "No. "
+         << setw(7) << "Name"
+         << setw(10) << "ID"
+         << setw(10) << "Price"
+         << setw(15) << "Discount:"
+         << setw(10) << "Percent"
+         << setw(15) << "Start Date"
+         << setw(15) << "End Date"
+         //  << setw(10) << "Status"
          << endl;
     while (i != this->length)
     {
-        cout << setw(10) << i
-             << setw(20) << this->product_arr_[i].GetName()
-             << setw(20) << this->product_arr_[i].GetID()
-             << setw(20) << this->product_arr_[i].GetAmount()
-             << setw(20) << this->product_arr_[i].GetPrice()
-             //  << setw(20) << this->product_arr_[i].GetDiscount()
-             //  << setw(20) << this->product_arr_[i].GetStatus()
+        cout << setw(3) << i
+             << setw(10) << this->product_arr_[i].GetName()
+             << setw(10) << this->product_arr_[i].GetID()
+             << setw(10) << this->product_arr_[i].GetPrice()
+             << setw(23) << this->product_arr_[i].GetDiscountPercent()
+             << setw(15) << this->product_arr_[i].GetDiscountStartDate()
+             << setw(17) << this->product_arr_[i].GetDiscountEndDate()
+             //  << setw(10) << this->product_arr_[i].GetStatus()
              << endl;
         i++;
     }
 }
 
-void Product_List::SetGeneralSpecifications(Product *a, string name_)
+void Product_List::ShowByProduct(string name)
 {
-    string name_;
-    string ID_;
-    int amount_;
-    int price_;
-    double percent_;
-    string start_date_, end_date_;
-    int discount_price_;
-    int status_;
-
-    cout << "Please input your product specification: \n";
-
-    a->SetName(name_);
-
-    cout << setw(10) << "ID: ";
-    cin >> ID_;
-    a->SetID(ID_);
-    cout << endl;
-
-    cout << setw(10) << "Amount: ";
-    cin >> amount_;
-    a->SetAmount(amount_);
-    cout << endl;
-
-    cout << setw(10) << "Price: ";
-    cin >> price_;
-    a->SetPrice(price_);
-    cout << endl;
-
-    cout << setw(10) << "Discount: \n";
-    cout << setw(15) << "Discount price: ";
-    cin >> discount_price_;
-    cout << endl;
-
-    cout << setw(15) << "Discount start date: ";
-    cin >> start_date_;
-    cout << endl;
-
-    cout << setw(15) << "Discount end date: ";
-    cin >> end_date_;
-    cout << endl;
-
-    a->SetDiscount(discount_price_, start_date_, end_date_);
-    cout << endl;
-
-    cout << setw(10) << "Status (1.A\t2.N/A): ";
-    cin >> status_;
-    a->SetStatus(status_);
-    cout << endl;
+    // if (this->length == 0)
+    //     return;
+    // int i = 0;
+    // cout << setw(40) << "GENERAL" << setw(70) << "DETAIL" << endl;
+    // cout << setw(5) << "No. "
+    //      << setw(7) << "Name"
+    //      << setw(10) << "ID"
+    //      << setw(10) << "Price"
+    //      << setw(15) << "Discount:"
+    //      << setw(10) << "Percent"
+    //      << setw(15) << "Start Date"
+    //      << setw(15) << "End Date";
+    // if (name == "Mouse")
+    // {
+    //     cout << setw(15) << "Brand"
+    //          << setw(15) << "Type"
+    //          << setw(15) << "Color"
+    //          << endl;
+    // }
+    // else
+    // {
+    //     cout << setw(15) << "Brand"
+    //          << setw(15) << "Disk Type"
+    //          << setw(15) << "Disk Capacity"
+    //          << setw(15) << "Screen size"
+    //          << setw(15) << "RAM"
+    //          << setw(15) << "Color"
+    //          << endl;
+    // }
+    // int j = 0;
+    // while (i != this->length)
+    // {
+    //     if (name == "Mouse")
+    //     {
+    //         cout << setw(3) << j
+    //              << setw(10) << this->product_arr_[i].GetName()
+    //              << setw(10) << this->product_arr_[i].GetID()
+    //              << setw(10) << this->product_arr_[i].GetPrice()
+    //              << setw(23) << this->product_arr_[i].GetDiscountPercent()
+    //              << setw(15) << this->product_arr_[i].GetDiscountStartDate()
+    //              << setw(17) << this->product_arr_[i].GetDiscountEndDate()
+    //              << setw(15) << this->product_arr_[i].
+    //              << setw(15) << "Type"
+    //              << setw(15) << "Color"
+    //              << endl;
+    //         << endl;
+    //     }
+    //     i++;
+    // }
 }
+
+// void Product_List::ReadFile(Product &product_data)
+// {
+//     fstream myfile;
+//     myfile.open("data.txt", ios::in);
+
+//     string name_;
+//     string ID_;
+//     int amount_;
+//     int price_;
+//     float discount_;
+
+//     getline(myfile, name_);
+//     getline(myfile, ID_);
+//     cin >> amount_;
+//     cin >> price_;
+//     cin >> discount_;
+
+//     product_data.SetName(name_);
+//     product_data.SetID(ID_);
+//     product_data.SetAmount(amount_);
+//     product_data.SetPrice(price_);
+
+//     myfile.close();
+// }

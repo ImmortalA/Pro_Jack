@@ -1,13 +1,6 @@
-// #include "include.h"
-// #include "Product.h"
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <iomanip>
-#include "Product2.h"
+#include "Product.h"
 
 using namespace std;
-
 
 class Mouse : public Product
 {
@@ -17,7 +10,10 @@ private:
     string color_;
 
 public:
-    Mouse();
+    Mouse() : Product()
+    {
+    }
+    ~Mouse() {}
 
     void SetBrand(string brand_);
     void EnterBrand();
@@ -31,7 +27,9 @@ public:
     void EnterColor();
     string GetColor();
 
-    void Show();
+    // void Show();
+
+    void SetDetail();
 };
 
 void Mouse::SetBrand(string brand_)
@@ -40,8 +38,11 @@ void Mouse::SetBrand(string brand_)
 }
 void Mouse::EnterBrand()
 {
-    cin.ignore(256, '\n');
+    // cin.ignore(256, '\n');
+    // getline(cin, this->brand_);
+    cin.ignore();
     getline(cin, this->brand_);
+    cin.clear();
 }
 string Mouse::GetBrand()
 {
@@ -54,8 +55,11 @@ void Mouse::SetType(string type_)
 }
 void Mouse::EnterType()
 {
-    cin.ignore(256, '\n');
+    // cin.ignore(256, '\n');
+    // getline(cin, this->type_);
+    cin.ignore();
     getline(cin, this->type_);
+    cin.clear();
 }
 string Mouse::GetType()
 {
@@ -68,17 +72,25 @@ void Mouse::SetColor(string color_)
 }
 void Mouse::EnterColor()
 {
-    cin.ignore(256, '\n');
+    // cin.ignore(256, '\n');
+    // getline(cin, this->color_);
+    cin.ignore();
     getline(cin, this->color_);
+    cin.clear();
 }
 string Mouse::GetColor()
 {
     return color_;
 }
 
-void Mouse::Show()
+void Mouse::SetDetail()
 {
-    cout << "Name: " << this->brand_ << endl;
-    cout << "Type: " << this->type_ << endl;
-    cout << "Color: " << this->color_ << endl;
+    cout << "Brand: ";
+    EnterBrand();
+
+    cout << "Type (Wire / Wireless): ";
+    EnterType();
+
+    cout << "Color: ";
+    EnterColor();
 }
