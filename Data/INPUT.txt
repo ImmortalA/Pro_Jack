@@ -1,2 +1,10 @@
 Mouse|M158|5|60|35|1/1/1|2/2/2|Logitech|Wire|Black|
 Laptop|L100|7|69|6.9|3/3/3|4/4/4|HP|SSD|1024|15.6|64|Gray|
+Mouse|M894|6|100|0|||Logitech|Wireless|Blue|
+Mouse|M456|7|200|10|9/4/2001|9/4/2002|Logitech MX 2|Wireless|Black|
+Mouse|M789|5|70|0|||apple|Wire|White|
+Laptop|L222|7|96|15.3|28/01/2001|28/01/2003|DELL|SSD|512|14|16|Silver|
+Laptop|L323|7|125|0|||Asus|HDD|2028|17|32|Red|
+Mouse|M489|5|200|10|1/2/3|4/5/6|Razer|Wireless|Black|
+Laptop|L698|7|890|2|7/8/9|8/9/10|MSI|SSD|512|15.6|16|Crom|
+Laptop|L156|7|740|0|||Lenovo|SSD|1024|15.6|64|Gray|
