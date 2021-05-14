@@ -170,6 +170,7 @@ void Product_List::SaveFile()
         {
             Mouse *mouse_ = new Mouse();
             //SetGeneral
+            mouse_->SetName(set_product_data_[0]);
             mouse_->SetID(set_product_data_[1]);
             mouse_->SetAmount(stoi(set_product_data_[2]));
             mouse_->SetPrice(stoi(set_product_data_[3]));
@@ -185,6 +186,7 @@ void Product_List::SaveFile()
         {
             Laptop *laptop_ = new Laptop();
             //SetGeneral
+            laptop_->SetName(set_product_data_[0]);
             laptop_->SetID(set_product_data_[1]);
             laptop_->SetAmount(stoi(set_product_data_[2]));
             laptop_->SetPrice(stoi(set_product_data_[3]));
