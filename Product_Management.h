@@ -30,7 +30,7 @@ public:
     void Show();
     void ShowByProduct(string name);
 
-    void ReadFile(Product_List &my_list);
+    void ReadFile();
 };
 
 Product_List::Product_List()
@@ -140,7 +140,7 @@ void Product_List::ShowByProduct(string name)
     }
 }
 
-void Product_List::ReadFile(Product_List &my_list)
+void Product_List::ReadFile()
 {
     string data_;
     string set_product_data_[13];
@@ -178,7 +178,7 @@ void Product_List::ReadFile(Product_List &my_list)
             mouse_->SetType(set_product_data_[8]);
             mouse_->SetColor(set_product_data_[9]);
 
-            my_list.Push(mouse_);
+            this->Push(mouse_);
         }
         else
         {
@@ -195,7 +195,7 @@ void Product_List::ReadFile(Product_List &my_list)
             laptop_->SetRam(stoi(set_product_data_[11]));
             laptop_->SetColor(set_product_data_[12]);
 
-            my_list.Push(laptop_);
+            this->Push(laptop_);
         }
     }
     // ofstream writefile;
