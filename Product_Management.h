@@ -149,6 +149,7 @@ void Product_List::SaveFile()
 
     readfile.open("./Data/INPUT.txt");
 
+    //Read file line by line
     while (getline(readfile, data_))
     {
         int i = 0;
@@ -158,6 +159,7 @@ void Product_List::SaveFile()
         string token_;
         Product *item_;
 
+        //Read line and seperate string by delimeter "|"
         while ((position_ = data_.find(delimiter_)) != std::string::npos)
         {
             item_ = new Mouse();
@@ -169,13 +171,13 @@ void Product_List::SaveFile()
         if (set_product_data_[0] == "Mouse")
         {
             Mouse *mouse_ = new Mouse();
-            //SetGeneral
+            //Set General
             mouse_->SetName(set_product_data_[0]);
             mouse_->SetID(set_product_data_[1]);
             mouse_->SetAmount(stoi(set_product_data_[2]));
             mouse_->SetPrice(stoi(set_product_data_[3]));
             mouse_->SetDiscount(stod(set_product_data_[4]), set_product_data_[5], set_product_data_[6]);
-            //SetDetail
+            //Set Detail
             mouse_->SetBrand(set_product_data_[7]);
             mouse_->SetType(set_product_data_[8]);
             mouse_->SetColor(set_product_data_[9]);
@@ -185,13 +187,13 @@ void Product_List::SaveFile()
         else if (set_product_data_[0] == "Laptop")
         {
             Laptop *laptop_ = new Laptop();
-            //SetGeneral
+            //Set General
             laptop_->SetName(set_product_data_[0]);
             laptop_->SetID(set_product_data_[1]);
             laptop_->SetAmount(stoi(set_product_data_[2]));
             laptop_->SetPrice(stoi(set_product_data_[3]));
             laptop_->SetDiscount(stod(set_product_data_[4]), set_product_data_[5], set_product_data_[6]);
-            //SetDetail
+            //Set Detail
             laptop_->SetBrand(set_product_data_[7]);
             laptop_->SetDiskType(set_product_data_[8]);
             laptop_->SetDiskCapacity(stoi(set_product_data_[9]));
