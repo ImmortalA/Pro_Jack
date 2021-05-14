@@ -109,7 +109,7 @@ void Menu::actionAddTerminal(Product_List &my_list)
     {
     case 1:
     {
-        Mouse* mouse_ = new Mouse();
+        Mouse *mouse_ = new Mouse();
         cout << "\n\tProduct chosen: MOUSE\n"
              << "Please input your mouse specifications: \n";
         mouse_->SetGeneral("Mouse");
@@ -130,7 +130,7 @@ void Menu::actionAddTerminal(Product_List &my_list)
     }
     case 2:
     {
-        Laptop* laptop_ = new Laptop();
+        Laptop *laptop_ = new Laptop();
         cout << "\n\tProduct chosen: LAPTOP\n"
              << "Please input your laptop specifications: \n";
         laptop_->SetGeneral("Laptop");
@@ -190,7 +190,7 @@ void Menu::actionDisplayTerminal(Product_List &my_list)
             {
                 my_list.ShowByProduct("Mouse");
                 break;
-            } 
+            }
             case 2:
             {
                 my_list.ShowByProduct("Laptop");
@@ -238,9 +238,12 @@ void Menu::actionDel(Product_List &my_list)
             cout << "Your selection: ";
             int option;
             cin >> option;
-            if (option == 1) my_list.PopByProduct("Mouse");
-            else if (option == 2) my_list.PopByProduct("Laptop");
-            else cout << "Please choose the correct option";
+            if (option == 1)
+                my_list.PopByProduct("Mouse");
+            else if (option == 2)
+                my_list.PopByProduct("Laptop");
+            else
+                cout << "Please choose the correct option";
             break;
         }
         }
