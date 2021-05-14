@@ -1,2 +1,3 @@
 Mouse|ID|amount(int)|price(int)|discount_percent(double)|start_day|end_day|brand|type|color|
+
 Laptop|ID|amount(int)|price(int)|discount_percent(double)|start_day|end_day|brand|disk_type|disk_capacity(int)|screen_size(double)|ram(int)|color|
