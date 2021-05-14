@@ -151,6 +151,7 @@ void Product_List::SaveFile()
 
     while (getline(readfile, data_))
     {
+        int i = 0;
         string delimiter_ = "|";
         size_t position_ = 0;
 
@@ -159,35 +160,36 @@ void Product_List::SaveFile()
 
         while ((position_ = data_.find(delimiter_)) != std::string::npos)
         {
-            int i = 0;
             item_ = new Mouse();
             token_ = data_.substr(0, position_);
             set_product_data_[i] = token_;
+            data_.erase(0, position_ + delimiter_.length());
             i++;
         }
-        data_.erase(0, position_ + delimiter_.length());
         if (set_product_data_[0] == "Mouse")
         {
             Mouse *mouse_ = new Mouse();
+            //SetGeneral
             mouse_->SetID(set_product_data_[1]);
             mouse_->SetAmount(stoi(set_product_data_[2]));
             mouse_->SetPrice(stoi(set_product_data_[3]));
             mouse_->SetDiscount(stod(set_product_data_[4]), set_product_data_[5], set_product_data_[6]);
-
+            //SetDetail
             mouse_->SetBrand(set_product_data_[7]);
             mouse_->SetType(set_product_data_[8]);
             mouse_->SetColor(set_product_data_[9]);
 
             this->Push(mouse_);
         }
-        else
+        else if (set_product_data_[0] == "Laptop")
         {
             Laptop *laptop_ = new Laptop();
+            //SetGeneral
             laptop_->SetID(set_product_data_[1]);
             laptop_->SetAmount(stoi(set_product_data_[2]));
             laptop_->SetPrice(stoi(set_product_data_[3]));
             laptop_->SetDiscount(stod(set_product_data_[4]), set_product_data_[5], set_product_data_[6]);
-
+            //SetDetail
             laptop_->SetBrand(set_product_data_[7]);
             laptop_->SetDiskType(set_product_data_[8]);
             laptop_->SetDiskCapacity(stoi(set_product_data_[9]));
