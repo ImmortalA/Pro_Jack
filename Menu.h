@@ -252,5 +252,5 @@ void Menu::actionDel(Product_List &my_list)
 
 void Menu::actionSaveFile(Product_List &my_list) 
 {
-    my_list.SaveFile(my_list);
+    my_list.SaveFile();
 }
