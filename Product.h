@@ -161,16 +161,16 @@ void Product::SetGeneral(string name)
     cout << "Discount: \n";
     cout << "\tDiscount percent (%): ";
     cin >> discount_percent_;
-    
+
     if (discount_percent_ != 0)
     {
-    cout << "\tDiscount start date (m/d/yyyy): ";
-    cin >> start_date_;
+        cout << "\tDiscount start date (m/d/yyyy): ";
+        cin >> start_date_;
 
-    cout << "\tDiscount end date (m/d/yyyy): ";
-    cin >> end_date_;
+        cout << "\tDiscount end date (m/d/yyyy): ";
+        cin >> end_date_;
     }
-    else 
+    else
     {
         start_date_ = end_date_ = "N/A";
     }

@@ -23,19 +23,19 @@ public:
     int GetLength() const;
     void SetLength(int n);
 
-    bool Push(Product* a);
+    bool Push(Product *a);
     void Pop(int i);
     void PopByProduct(string name);
 
     void Show();
     void ShowByProduct(string name);
 
-    // void ReadFile(Product &product_data);
+    void ReadFile(Product_List &my_list);
 };
 
 Product_List::Product_List()
 {
-    product_arr_ = new Product*[maxx];
+    product_arr_ = new Product *[maxx];
     this->length = 0;
 }
 
@@ -55,7 +55,7 @@ void Product_List::SetLength(int n)
     this->length = n;
 }
 
-bool Product_List::Push(Product* a)
+bool Product_List::Push(Product *a)
 {
     if (this->length + 1 < maxx)
     {
@@ -140,27 +140,92 @@ void Product_List::ShowByProduct(string name)
     }
 }
 
-// void Product_List::ReadFile(Product &product_data)
+void Product_List::ReadFile(Product_List &my_list)
+{
+    string data_;
+    string set_product_data_[13];
+
+    ifstream readfile;
+
+    readfile.open("./Data/INPUT.txt");
+
+    while (getline(readfile, data_))
+    {
+        string delimiter_ = "|";
+        size_t position_ = 0;
+
+        string token_;
+        Product *item_;
+
+        while ((position_ = data_.find(delimiter_)) != std::string::npos)
+        {
+            int i = 0;
+            item_ = new Mouse();
+            token_ = data_.substr(0, position_);
+            set_product_data_[i] = token_;
+            i++;
+        }
+        data_.erase(0, position_ + delimiter_.length());
+        if (set_product_data_[0] == "Mouse")
+        {
+            Mouse *mouse_ = new Mouse();
+            mouse_->SetID(set_product_data_[1]);
+            mouse_->SetAmount(stoi(set_product_data_[2]));
+            mouse_->SetPrice(stoi(set_product_data_[3]));
+            mouse_->SetDiscount(stod(set_product_data_[4]), set_product_data_[5], set_product_data_[6]);
+
+            mouse_->SetBrand(set_product_data_[7]);
+            mouse_->SetType(set_product_data_[8]);
+            mouse_->SetColor(set_product_data_[9]);
+
+            my_list.Push(mouse_);
+        }
+        else
+        {
+            Laptop *laptop_ = new Laptop();
+            laptop_->SetID(set_product_data_[1]);
+            laptop_->SetAmount(stoi(set_product_data_[2]));
+            laptop_->SetPrice(stoi(set_product_data_[3]));
+            laptop_->SetDiscount(stod(set_product_data_[4]), set_product_data_[5], set_product_data_[6]);
+
+            laptop_->SetBrand(set_product_data_[7]);
+            laptop_->SetDiskType(set_product_data_[8]);
+            laptop_->SetDiskCapacity(stoi(set_product_data_[9]));
+            laptop_->SetScreenSize(stod(set_product_data_[10]));
+            laptop_->SetRam(stoi(set_product_data_[11]));
+            laptop_->SetColor(set_product_data_[12]);
+
+            my_list.Push(laptop_);
+        }
+    }
+    // ofstream writefile;
+    // writefile.open("./Data/OUTPUT.txt");
+    // writefile.close();
+    readfile.close();
+}
+
+// switch (i)
 // {
-//     fstream myfile;
-//     myfile.open("data.txt", ios::in);
-
-//     string name_;
-//     string ID_;
-//     int amount_;
-//     int price_;
-//     float discount_;
-
-//     getline(myfile, name_);
-//     getline(myfile, ID_);
-//     cin >> amount_;
-//     cin >> price_;
-//     cin >> discount_;
-
-//     product_data.SetName(name_);
-//     product_data.SetID(ID_);
-//     product_data.SetAmount(amount_);
-//     product_data.SetPrice(price_);
-
-//     myfile.close();
-// }
+// case 0:
+//     name_ = token_;
+//     if (name_ == "Mouse")
+//     {
+//         item_ = new Mouse();
+//     }
+//     if (name_ == "Laptop")
+//     {
+//         item_ = new Laptop();
+//     }
+//     break;
+// case 1:
+//     ID_ = token_;
+//     break;
+// case 2:
+//     amount_ = stoi(token_);
+//     break;
+// case 3:
+//     price_ = stoi(token_);
+//     break;
+// case 4:
+//     discount_ = stod(token_);
+//     break;
