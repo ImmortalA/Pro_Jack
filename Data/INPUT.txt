@@ -1,2 +1,2 @@
-Mouse|ID|amount(int)|price(int)|discount_percent(double)|start_day|end_day|brand|type|color|
-Laptop|ID|amount(int)|price(int)|discount_percent(double)|start_day|end_day|brand|disk_type|disk_capacity(int)|screen_size(double)|ram(int)|color|
+Mouse|M158|5|60|35|1/1/1|2/2/2|Logitech|Wire|Black|
+Laptop|L100|7|69|6.9|3/3/3|4/4/4|HP|SSD|1024|15.6|64|Gray|

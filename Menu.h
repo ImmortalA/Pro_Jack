@@ -26,7 +26,7 @@ public:
     void actionAddTerminal(Product_List &my_list);
     void actionDisplayTerminal(Product_List &my_list);
 
-    void actionSaveFile(Product_List &my_list) {}
+    void actionSaveFile(Product_List &my_list);
     void actionDisplayFile(Product_List &my_list) {}
 
     void actionDel(Product_List &my_list);
@@ -248,4 +248,9 @@ void Menu::actionDel(Product_List &my_list)
         }
         }
     }
+}
+
+void Menu::actionSaveFile(Product_List &my_list) 
+{
+    my_list.SaveFile(my_list);
 }

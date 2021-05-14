@@ -30,7 +30,7 @@ public:
     void Show();
     void ShowByProduct(string name);
 
-    void ReadFile(Product_List &my_list);
+    void SaveFile(Product_List &my_list);
 };
 
 Product_List::Product_List()
@@ -140,7 +140,7 @@ void Product_List::ShowByProduct(string name)
     }
 }
 
-void Product_List::ReadFile(Product_List &my_list)
+void Product_List::SaveFile(Product_List &my_list)
 {
     string data_;
     string set_product_data_[13];
