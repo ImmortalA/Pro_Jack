@@ -135,8 +135,8 @@ void Laptop::ShowDetail()
 
 void Laptop::ShowFileDetail()
 {
-    ofstream writefile;
-    writefile.open("./Data/OUTPUT.txt");
+    fstream writefile;
+    writefile.open("./Data/OUTPUT.txt", fstream::app);
 
     writefile << "Detail:\tBrand: " << GetBrand()
               << "\tDisk type: " << GetDiskType()

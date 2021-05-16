@@ -111,11 +111,13 @@ void Mouse::ShowDetail()
 void Mouse::ShowFileDetail()
 {
     ofstream writefile;
-    writefile.open("./Data/OUTPUT.txt");
+    writefile.open("./Data/OUTPUT.txt", ios::app);
 
     writefile << "Detail:\t\tBrand: " << GetBrand()
-              << setw(15) << "Type: " << GetType()
-              << setw(15) << "Color: " << GetColor()
+              << "\t"
+              << "Type: " << GetType()
+              << "\t"
+              << "Color: " << GetColor()
               << endl;
 
     writefile.close();

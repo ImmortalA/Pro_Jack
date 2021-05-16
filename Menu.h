@@ -292,12 +292,12 @@ void Menu::actionDisplayFile(Product_List &my_list)
             {
             case 1:
             {
-                my_list.ShowByProduct("Mouse"); ///////////////////
+                my_list.ShowFileByProduct("Mouse"); 
                 break;
             }
             case 2:
             {
-                my_list.ShowByProduct("Laptop"); ///////////////////
+                my_list.ShowFileByProduct("Laptop");
                 break;
             }
             default:
