@@ -77,9 +77,13 @@ void Product::EnterID()
 {
     // cin.ignore(256, '\n');
     // getline(cin, this->ID_);
+    inputID: // nhãn
     cin.ignore();
     getline(cin, this->ID_);
     cin.clear();
+	if (this->ID_ == "")
+		goto inputID; // nhảy đến nhãn tryAgain
+
 }
 string Product::GetID()
 {
