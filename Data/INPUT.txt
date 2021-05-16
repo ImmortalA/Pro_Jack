@@ -1,11 +1,10 @@
-Mouse|M158|5|60|35|1/1/1|2/2/2|Logitech|Wire|Black||
-Laptop|L100|7|69|6.9|3/3/3|4/4/4|HP|SSD|1024|15.600000|64|Gray||
-Mouse|M894|6|100|0|N/A|N/A|Logitech|Wireless|Blue||
-Mouse|M456|7|200|10|9/4/01|9/4/02|Logitech MX 2|Wireless|Black||
-Mouse|M789|5|70|0|N/A|N/A|apple|Wire|White||
-Laptop|L222|7|96|15.3|28/01/01|28/01/03|DELL|SSD|512|14.000000|16|Silver||
-Laptop|L323|7|125|0|N/A|N/A|Asus|HDD|2028|17.000000|32|Red||
-Mouse|M489|5|200|10|1/2/3|4/5/6|Razer|Wireless|Black||
-Laptop|L698|7|890|2|7/8/9|8/9/10|MSI|SSD|512|15.600000|16|Crom||
-Laptop|L156|7|740|0|N/A|N/A|Lenovo|SSD|1024|15.600000|64|Gray||
-Mouse|M890|0|79|10|1/1/1|2/2/2|Logitech|Wire|Red||
+Mouse|M158|5|60|35|1/1/1|2/2/2|Logitech|Wire|Black|
+Laptop|L100|7|69|6.9|3/3/3|4/4/4|HP|SSD|1024|15.600000|64|Gray|
+Mouse|M894|6|100|0|N/A|N/A|Logitech|Wireless|Blue|
+Mouse|M456|7|200|10|9/4/01|9/4/02|Logitech MX 2|Wireless|Black|
+Mouse|M789|5|70|0|N/A|N/A|apple|Wire|White|
+Laptop|L222|7|96|15.3|28/01/01|28/01/03|DELL|SSD|512|14.000000|16|Silver|
+Laptop|L323|7|125|0|N/A|N/A|Asus|HDD|2028|17.000000|32|Red|
+Mouse|M489|5|200|10|1/2/3|4/5/6|Razer|Wireless|Black|
+Laptop|L698|7|890|2|7/8/9|8/9/10|MSI|SSD|512|15.600000|16|Crom|
+Laptop|L156|7|740|0|N/A|N/A|Lenovo|SSD|1024|15.600000|64|Gray|

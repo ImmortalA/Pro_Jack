@@ -250,4 +250,5 @@ void Menu::actionDel(Product_List &my_list)
         }
         }
     }
+    my_list.AddFile();
 }
