@@ -8,3 +8,4 @@ Laptop|L323|7|125|0|N/A|N/A|Asus|HDD|2028|17.000000|32|Red|
 Mouse|M489|5|200|10|1/2/3|4/5/6|Razer|Wireless|Black|
 Laptop|L698|7|890|2|7/8/9|8/9/10|MSI|SSD|512|15.600000|16|Crom|
 Laptop|L156|7|740|0|N/A|N/A|Lenovo|SSD|1024|15.600000|64|Gray|
+Mouse|M123456|0|0|0|N/A|N/A||||
