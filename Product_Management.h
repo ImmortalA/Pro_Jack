@@ -29,8 +29,10 @@ public:
 
     void Show();
     void ShowByProduct(string name);
+    void ShowFileByProduct(string name);
 
     void SaveFile();
+    void ShowFile();
 };
 
 Product_List::Product_List()
@@ -204,34 +206,87 @@ void Product_List::SaveFile()
             this->Push(laptop_);
         }
     }
-    // ofstream writefile;
-    // writefile.open("./Data/OUTPUT.txt");
-    // writefile.close();
     readfile.close();
 }
 
-// switch (i)
-// {
-// case 0:
-//     name_ = token_;
-//     if (name_ == "Mouse")
-//     {
-//         item_ = new Mouse();
-//     }
-//     if (name_ == "Laptop")
-//     {
-//         item_ = new Laptop();
-//     }
-//     break;
-// case 1:
-//     ID_ = token_;
-//     break;
-// case 2:
-//     amount_ = stoi(token_);
-//     break;
-// case 3:
-//     price_ = stoi(token_);
-//     break;
-// case 4:
-//     discount_ = stod(token_);
-//     break;
+void Product_List::ShowFile()
+{
+    ofstream writefile;
+    writefile.open("./Data/OUTPUT.txt");
+
+    if (this->length == 0)
+        return;
+    writefile << "\t\t\t\t\t"
+              << "GENERAL" << endl;
+    writefile << "No. "
+              << "\t"
+              << "Name"
+              << "\t"
+              << "ID"
+              << "\t"
+              << "Price"
+              << "\t"
+              << "Discount:"
+              << "\t"
+              << "Percent"
+              << "\t"
+              << "Start Date"
+              << "\t"
+              << "End Date"
+              << endl;
+    for (int i = 0; i < this->length; i++)
+    {
+        writefile << i;
+        writefile << "\t" << this->product_arr_[i]->GetName()
+                  << "\t" << this->product_arr_[i]->GetID()
+                  << "\t" << this->product_arr_[i]->GetPrice()
+                  << "\t\t\t" << this->product_arr_[i]->GetDiscountPercent()
+                  << "\t" << this->product_arr_[i]->GetDiscountStartDate()
+                  << "\t\t" << this->product_arr_[i]->GetDiscountEndDate()
+                  << endl;
+    }
+
+    writefile.close();
+}
+
+void Product_List::ShowFileByProduct(string name)
+{
+    ofstream writefile;
+    writefile.open("./Data/OUTPUT.txt");
+
+    if (this->length == 0)
+        return;
+    writefile << "\t\t\t\t\t"
+              << "GENERAL" << endl;
+    writefile << "No. "
+              << "\t"
+              << "Name"
+              << "\t"
+              << "ID"
+              << "\t"
+              << "Price"
+              << "\t"
+              << "Discount:"
+              << "\t"
+              << "Percent"
+              << "\t"
+              << "Start Date"
+              << "\t"
+              << "End Date"
+              << endl;
+    for (int i = 0; i < this->length; i++)
+    {
+        if (this->product_arr_[i]->GetName() == name)
+        {
+            writefile << i;
+            writefile << "\t" << this->product_arr_[i]->GetName()
+                      << "\t" << this->product_arr_[i]->GetID()
+                      << "\t" << this->product_arr_[i]->GetPrice()
+                      << "\t\t\t" << this->product_arr_[i]->GetDiscountPercent()
+                      << "\t" << this->product_arr_[i]->GetDiscountStartDate()
+                      << "\t\t" << this->product_arr_[i]->GetDiscountEndDate() << endl;
+            this->product_arr_[i]->ShowFileDetail();
+        }
+    }
+    writefile.close();
+}
