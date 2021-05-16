@@ -126,6 +126,7 @@ void Menu::actionAddTerminal(Product_List &my_list)
             mouse_->SetDetail();
         }
         my_list.Push(mouse_);
+        my_list.AddFile();
         break;
     }
     case 2:
@@ -147,6 +148,7 @@ void Menu::actionAddTerminal(Product_List &my_list)
             laptop_->SetDetail();
         }
         my_list.Push(laptop_);
+        my_list.AddFile();
         break;
     }
     default:
@@ -248,65 +250,4 @@ void Menu::actionDel(Product_List &my_list)
         }
         }
     }
-}
-
-// void Menu::actionSaveFile(Product_List &my_list)
-// {
-//     my_list.SaveFile();
-// }
-
-void Menu::actionDisplayFile(Product_List &my_list)
-{
-    ofstream writefile;
-    writefile.open("./Data/OUTPUT.txt");
-
-    if (my_list.GetLength() == 0)
-        writefile << "There is no product in the list." << endl;
-    else
-    {
-        cout << "Which display do you want to view?\n"
-             << setw(15) << "1.View all "
-             << setw(15) << "2.View by product"
-             << endl;
-        cout << "Your selection: ";
-        int option;
-        cin >> option;
-
-        switch (option)
-        {
-        case 1:
-        {
-            my_list.ShowFile();
-            break;
-        }
-        case 2:
-        {
-            cout << "Which product do you want to view?\n"
-                 << setw(15) << "1.Mouse "
-                 << setw(15) << "2.Laptop"
-                 << endl;
-            cout << "Your selection: ";
-            int option;
-            cin >> option;
-            switch (option)
-            {
-            case 1:
-            {
-                my_list.ShowFileByProduct("Mouse"); 
-                break;
-            }
-            case 2:
-            {
-                my_list.ShowFileByProduct("Laptop");
-                break;
-            }
-            default:
-                break;
-            }
-            break;
-        }
-        }
-    }
-
-    writefile.close();
 }
