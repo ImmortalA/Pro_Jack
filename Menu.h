@@ -8,10 +8,10 @@ using namespace std;
 
 #define ACTION_ADD_TERMINAL 1
 #define ACTION_DISPLAY_TERMINAL 2
-#define ACTION_SAVE_FILE 3
-#define ACTION_DISPLAY_FILE 4
-#define ACTION_DEL 5
-#define ACTION_EXIT 6
+// #define ACTION_SAVE_FILE 3
+#define ACTION_DISPLAY_FILE 3
+#define ACTION_DEL 4
+#define ACTION_EXIT 5
 
 class Menu
 {
@@ -26,7 +26,7 @@ public:
     void actionAddTerminal(Product_List &my_list);
     void actionDisplayTerminal(Product_List &my_list);
 
-    void actionSaveFile(Product_List &my_list);
+    // void actionSaveFile(Product_List &my_list);
     void actionDisplayFile(Product_List &my_list);
 
     void actionDel(Product_List &my_list);
@@ -52,7 +52,7 @@ int Menu::ShowMenu()
 void Menu::MainMenu()
 {
     Product_List my_list;
-
+    my_list.SaveFile();
     cout << "======================================================\n\n";
     cout << "\t(っ＾▿＾っ) W E L C O M E (っ＾▿＾っ)\n\n";
     while (true)
@@ -70,11 +70,11 @@ void Menu::MainMenu()
             actionDisplayTerminal(my_list);
             break;
         }
-        case ACTION_SAVE_FILE:
-        {
-            actionSaveFile(my_list);
-            break;
-        }
+        // case ACTION_SAVE_FILE:
+        // {
+        //     actionSaveFile(my_list);
+        //     break;
+        // }
         case ACTION_DISPLAY_FILE:
         {
             actionDisplayFile(my_list);
@@ -250,10 +250,10 @@ void Menu::actionDel(Product_List &my_list)
     }
 }
 
-void Menu::actionSaveFile(Product_List &my_list)
-{
-    my_list.SaveFile();
-}
+// void Menu::actionSaveFile(Product_List &my_list)
+// {
+//     my_list.SaveFile();
+// }
 
 void Menu::actionDisplayFile(Product_List &my_list)
 {
