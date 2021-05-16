@@ -9,9 +9,9 @@ using namespace std;
 #define ACTION_ADD_TERMINAL 1
 #define ACTION_DISPLAY_TERMINAL 2
 // #define ACTION_SAVE_FILE 3
-#define ACTION_DISPLAY_FILE 3
-#define ACTION_DEL 4
-#define ACTION_EXIT 5
+// #define ACTION_DISPLAY_FILE 3
+#define ACTION_DEL 3
+#define ACTION_EXIT 4
 
 class Menu
 {
@@ -38,10 +38,10 @@ int Menu::ShowMenu()
     cout << "\tThis is the menu ☜(ˆ▿ˆc)\n";
     cout << "1.Add a product from terminal\n";
     cout << "2.Display product list on terminal\n";
-    cout << "3.Save a product from file\n";
-    cout << "4.Display product list on file\n";
-    cout << "5.Delete a product \n";
-    cout << "6.Exit\n\n";
+    // cout << "3.Save a product from file\n";
+    // cout << "4.Display product list on file\n";
+    cout << "3.Delete a product \n";
+    cout << "4.Exit\n\n";
     cout << "Please choose your order: ";
     int option;
     cin >> option;
@@ -75,11 +75,11 @@ void Menu::MainMenu()
         //     actionSaveFile(my_list);
         //     break;
         // }
-        case ACTION_DISPLAY_FILE:
-        {
-            actionDisplayFile(my_list);
-            break;
-        }
+        // case ACTION_DISPLAY_FILE:
+        // {
+        //     actionDisplayFile(my_list);
+        //     break;
+        // }
         case ACTION_DEL:
         {
             actionDel(my_list);
