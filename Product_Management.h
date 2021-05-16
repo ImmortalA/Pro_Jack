@@ -237,7 +237,7 @@ void Product_List::AddFile()
                     << this->product_arr_[i]->GetDiscountStartDate() << "|"
                     << this->product_arr_[i]->GetDiscountEndDate() << "|"
 
-                    << this->product_arr_[i]->GetDetailInput() << "|" << endl;
+                    << this->product_arr_[i]->GetDetailInput() << endl;
         }
     }
 
