@@ -31,6 +31,7 @@ public:
 
     void SetDetail();
     void ShowDetail();
+    void ShowFileDetail();
 };
 
 void Mouse::SetBrand(string brand_)
@@ -105,4 +106,19 @@ void Mouse::ShowDetail()
          << setw(15) << "Type: " << GetType()
          << setw(15) << "Color: " << GetColor()
          << endl;
+}
+
+void Mouse::ShowFileDetail()
+{
+    ofstream writefile;
+    writefile.open("./Data/OUTPUT.txt", ios::app);
+
+    writefile << "Detail:\t\tBrand: " << GetBrand()
+              << "\t"
+              << "Type: " << GetType()
+              << "\t"
+              << "Color: " << GetColor()
+              << endl;
+
+    writefile.close();
 }

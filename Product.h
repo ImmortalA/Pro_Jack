@@ -49,7 +49,9 @@ public:
 
     void SetGeneral(string name);
     void ShowGeneral();
+
     virtual void ShowDetail() = 0;
+    virtual void ShowFileDetail() = 0;
 };
 
 void Product::SetName(string name_)

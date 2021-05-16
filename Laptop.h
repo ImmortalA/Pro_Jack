@@ -38,6 +38,7 @@ public:
 
     void SetDetail();
     void ShowDetail();
+    void ShowFileDetail();
 };
 
 void Laptop::SetBrand(string brand_)
@@ -130,4 +131,20 @@ void Laptop::ShowDetail()
          << "\tRAM: " << GetRam()
          << "\tColor" << GetColor()
          << endl;
+}
+
+void Laptop::ShowFileDetail()
+{
+    fstream writefile;
+    writefile.open("./Data/OUTPUT.txt", fstream::app);
+
+    writefile << "Detail:\tBrand: " << GetBrand()
+              << "\tDisk type: " << GetDiskType()
+              << "\tDisk capacity: " << GetDiskCapacity()
+              << "\tScreen size: " << GetScreenSize()
+              << "\tRAM: " << GetRam()
+              << "\tColor" << GetColor()
+              << endl;
+
+    writefile.close();
 }
