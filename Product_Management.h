@@ -29,10 +29,9 @@ public:
 
     void Show();
     void ShowByProduct(string name);
-    void ShowFileByProduct(string name);
 
     void SaveFile();
-    void ShowFile();
+    void AddFile();
 };
 
 Product_List::Product_List()
@@ -209,84 +208,38 @@ void Product_List::SaveFile()
     readfile.close();
 }
 
-void Product_List::ShowFile()
+void Product_List::AddFile()
 {
-    ofstream writefile;
-    writefile.open("./Data/OUTPUT.txt");
+    ofstream addfile;
+    addfile.open("./Data/INPUT.txt");
 
-    if (this->length == 0)
-        return;
-    writefile << "\t\t\t\t\t"
-              << "GENERAL" << endl;
-    writefile << "No. "
-              << "\t"
-              << "Name"
-              << "\t"
-              << "ID"
-              << "\t"
-              << "Price"
-              << "\t"
-              << "Discount:"
-              << "\t"
-              << "Percent"
-              << "\t"
-              << "Start Date"
-              << "\t"
-              << "End Date"
-              << endl;
-    for (int i = 0; i < this->length; i++)
+    for (int i = 0; i < length; i++)
     {
-        writefile << i;
-        writefile << "\t" << this->product_arr_[i]->GetName()
-                  << "\t" << this->product_arr_[i]->GetID()
-                  << "\t" << this->product_arr_[i]->GetPrice()
-                  << "\t\t\t" << this->product_arr_[i]->GetDiscountPercent()
-                  << "\t" << this->product_arr_[i]->GetDiscountStartDate()
-                  << "\t\t" << this->product_arr_[i]->GetDiscountEndDate()
-                  << endl;
-    }
-
-    writefile.close();
-}
-
-void Product_List::ShowFileByProduct(string name)
-{
-    ofstream writefile;
-    writefile.open("./Data/OUTPUT.txt");
-
-    if (this->length == 0)
-        return;
-    writefile << "\t\t\t\t\t"
-              << "GENERAL" << endl;
-    writefile << "No. "
-              << "\t"
-              << "Name"
-              << "\t"
-              << "ID"
-              << "\t"
-              << "Price"
-              << "\t"
-              << "Discount:"
-              << "\t"
-              << "Percent"
-              << "\t"
-              << "Start Date"
-              << "\t"
-              << "End Date"
-              << endl;
-    for (int i = 0; i < this->length; i++)
-    {
-        if (this->product_arr_[i]->GetName() == name)
+        if (this->product_arr_[i]->GetName() == "Mouse")
         {
-            writefile << i;
-            writefile << "\t" << this->product_arr_[i]->GetName()
-                      << "\t" << this->product_arr_[i]->GetID()
-                      << "\t" << this->product_arr_[i]->GetPrice()
-                      << "\t\t\t" << this->product_arr_[i]->GetDiscountPercent()
-                      << "\t" << this->product_arr_[i]->GetDiscountStartDate()
-                      << "\t\t" << this->product_arr_[i]->GetDiscountEndDate() << endl;
-            this->product_arr_[i]->ShowFileDetail();
+            addfile << this->product_arr_[i]->GetName() << "|"
+                    << this->product_arr_[i]->GetID() << "|"
+                    << this->product_arr_[i]->GetAmount() << "|"
+                    << this->product_arr_[i]->GetPrice() << "|"
+                    << this->product_arr_[i]->GetDiscountPercent() << "|"
+                    << this->product_arr_[i]->GetDiscountStartDate() << "|"
+                    << this->product_arr_[i]->GetDiscountEndDate() << "|"
+
+                    << this->product_arr_[i]->GetDetailInput() << "|";
+        }
+        else if (this->product_arr_[i]->GetName() == "Laptop")
+        {
+            addfile << this->product_arr_[i]->GetName() << "|"
+                    << this->product_arr_[i]->GetID() << "|"
+                    << this->product_arr_[i]->GetAmount() << "|"
+                    << this->product_arr_[i]->GetPrice() << "|"
+                    << this->product_arr_[i]->GetDiscountPercent() << "|"
+                    << this->product_arr_[i]->GetDiscountStartDate() << "|"
+                    << this->product_arr_[i]->GetDiscountEndDate() << "|"
+
+                    << this->product_arr_[i]->GetDetailInput() << "|";
         }
     }
-    writefile.close();
+
+    addfile.close();
 }

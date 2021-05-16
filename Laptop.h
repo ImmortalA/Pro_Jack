@@ -38,7 +38,8 @@ public:
 
     void SetDetail();
     void ShowDetail();
-    void ShowFileDetail();
+
+    string GetDetailInput();
 };
 
 void Laptop::SetBrand(string brand_)
@@ -133,18 +134,21 @@ void Laptop::ShowDetail()
          << endl;
 }
 
-void Laptop::ShowFileDetail()
+string Laptop::GetDetailInput()
 {
-    fstream writefile;
-    writefile.open("./Data/OUTPUT.txt", fstream::app);
+    string detail_input;
+    detail_input.append(GetBrand());
+    detail_input.append("|");
+    detail_input.append(GetDiskType());
+    detail_input.append("|");
+    detail_input.append(to_string(GetDiskCapacity()));
+    detail_input.append("|");
+    detail_input.append(to_string(GetScreenSize()));
+    detail_input.append("|");
+    detail_input.append(to_string(GetRam()));
+    detail_input.append("|");
+    detail_input.append(GetColor());
+    detail_input.append("|");
 
-    writefile << "Detail:\tBrand: " << GetBrand()
-              << "\tDisk type: " << GetDiskType()
-              << "\tDisk capacity: " << GetDiskCapacity()
-              << "\tScreen size: " << GetScreenSize()
-              << "\tRAM: " << GetRam()
-              << "\tColor" << GetColor()
-              << endl;
-
-    writefile.close();
+    return detail_input;
 }

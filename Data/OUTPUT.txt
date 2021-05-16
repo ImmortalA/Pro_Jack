@@ -1,10 +1,12 @@
 					GENERAL
 No. 	Name	ID	Price	Discount:	Percent	Start Date	End Date
 0	Mouse	M158	60			35	1/1/1		2/2/2
+1	Laptop	L100	69			6.9	3/3/3		4/4/4
 2	Mouse	M894	100			0	N/A		N/A
 3	Mouse	M456	200			10	9/4/01		9/4/02
 4	Mouse	M789	70			0	N/A		N/A
+5	Laptop	L222	96			15.3	28/01/01		28/01/03
+6	Laptop	L323	125			0	N/A		N/A
 7	Mouse	M489	200			10	1/2/3		4/5/6
-pe: Wireless	Color: Black
-Detail:		Brand: apple	Type: Wire	Color: White
-Detail:		Brand: Razer	Type: Wireless	Color: Black
+8	Laptop	L698	890			2	7/8/9		8/9/10
+9	Laptop	L156	740			0	N/A		N/A
